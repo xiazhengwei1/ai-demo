@@ -3,688 +3,480 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>夏正伟 | AI产品经理作品集</title>
+<title>夏正伟 · AI产品经理作品集</title>
 <style>
-:root {
-  --primary: #0F4761;
-  --primary-light: #1a6a8f;
-  --primary-dark: #0a3245;
-  --accent: #e8f1f5;
-  --accent2: #f0f5f8;
-  --text: #2d3436;
-  --text-light: #636e72;
-  --white: #ffffff;
-  --border: #e0e6ed;
-  --shadow: 0 4px 20px rgba(15,71,97,0.08);
-  --shadow-hover: 0 8px 30px rgba(15,71,97,0.15);
-  --radius: 12px;
+:root{
+  --primary:#0F4761; --primary-2:#1B6B93; --accent:#1F8A70; --amber:#C77D2E;
+  --bg:#F4F7F9; --card:#FFFFFF; --text:#22303A; --muted:#66787F; --line:#DCE5EA;
+  --soft:#EAF1F5;
 }
-* { margin:0; padding:0; box-sizing:border-box; }
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
-  color: var(--text);
-  background: #f5f7fa;
-  line-height: 1.7;
-  scroll-behavior: smooth;
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:var(--bg); color:var(--text); line-height:1.7; -webkit-font-smoothing:antialiased;
 }
-a { color: var(--primary-light); text-decoration: none; }
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px}
 
-/* ===== NAV ===== */
-nav {
-  position: fixed; top:0; left:0; right:0; z-index:1000;
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 1px 10px rgba(0,0,0,0.06);
-  padding: 0 24px;
-  height: 56px;
-  display: flex; align-items: center; justify-content: space-between;
+/* ---------- HERO ---------- */
+.hero{
+  background:linear-gradient(135deg,#0F4761 0%,#1B6B93 55%,#1F8A70 100%);
+  color:#fff; padding:64px 0 56px; position:relative; overflow:hidden;
 }
-nav .logo { font-weight:700; font-size:15px; color:var(--primary); }
-nav .links { display:flex; gap:4px; }
-nav .links a {
-  padding: 6px 14px; border-radius:8px; font-size:13px; font-weight:500;
-  color: var(--text-light); transition: all 0.2s;
+.hero::after{
+  content:""; position:absolute; right:-120px; top:-120px; width:420px; height:420px;
+  border-radius:50%; background:rgba(255,255,255,.06);
 }
-nav .links a:hover { background: var(--accent); color: var(--primary); }
-nav .links a.active { background: var(--primary); color: var(--white); }
-
-/* ===== HERO ===== */
-.hero {
-  min-height: 100vh;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
-  color: var(--white);
-  text-align: center;
-  padding: 80px 24px 60px;
-  position: relative;
+.hero .wrap{position:relative;z-index:1}
+.hero h1{font-size:40px;font-weight:800;letter-spacing:1px;line-height:1.25}
+.hero h1 span{font-size:19px;font-weight:500;opacity:.85;margin-left:14px;letter-spacing:0}
+.hero .tag{
+  display:inline-block;margin-top:16px;padding:7px 18px;border-radius:20px;
+  background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);
+  font-size:15px;font-weight:600;letter-spacing:.5px;
 }
-.hero::before {
-  content: '';
-  position: absolute; top:0; left:0; right:0; bottom:0;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='0.08'%3E%3Cpath d='M30 0L0 30 30 60 60 30z'/%3E%3C/g%3E%3C/svg%3E");
-  opacity: 0.5;
+.hero .lead{margin-top:18px;font-size:15px;opacity:.9;max-width:720px}
+.hero .meta{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px 26px;font-size:13.5px;opacity:.88}
+.hero .meta b{font-weight:600}
+
+/* ---------- NAV ---------- */
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;gap:8px;overflow-x:auto}
+.nav a{
+  display:block;padding:15px 14px;font-size:14px;color:var(--muted);text-decoration:none;
+  font-weight:600;white-space:nowrap;border-bottom:3px solid transparent;
 }
-.hero-content { position: relative; z-index:1; max-width: 700px; }
-.hero .tag { font-size:13px; letter-spacing:3px; text-transform:uppercase; opacity:0.7; margin-bottom:12px; }
-.hero h1 { font-size:48px; font-weight:800; margin-bottom:8px; letter-spacing:2px; }
-.hero h2 { font-size:20px; font-weight:400; opacity:0.85; margin-bottom:32px; }
-.hero .info { display:flex; gap:24px; justify-content:center; flex-wrap:wrap; font-size:14px; opacity:0.8; margin-bottom:32px; }
-.hero .info span { display:flex; align-items:center; gap:6px; }
-.hero .badges { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:36px; }
-.hero .badge {
-  padding: 6px 16px; border:1px solid rgba(255,255,255,0.3); border-radius:20px;
-  font-size:12px; font-weight:500; backdrop-filter: blur(5px);
+.nav a:hover{color:var(--primary);border-bottom-color:var(--primary)}
+
+/* ---------- SECTION ---------- */
+section{padding:52px 0 8px}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:8px}
+.sec-no{
+  font-size:13px;font-weight:800;color:#fff;background:var(--primary);
+  width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;
+  flex:0 0 auto;align-self:center;
 }
-.hero .tagline { font-size:15px; opacity:0.7; font-style:italic; max-width:500px; margin:0 auto; }
-.hero .scroll-hint {
-  position: absolute; bottom: 30px; left:50%; transform:translateX(-50%);
-  font-size:12px; opacity:0.5; animation: bounce 2s infinite;
+.sec-head h2{font-size:24px;font-weight:800;color:var(--primary);letter-spacing:.5px}
+.sec-sub{font-size:14px;color:var(--muted);margin:6px 0 26px;padding-left:44px}
+
+/* ---------- CARD ---------- */
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 28px;box-shadow:0 1px 3px rgba(15,71,97,.05)}
+
+/* ---------- 能力主线 ---------- */
+.chain{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.chain-item{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 18px;position:relative;border-top:4px solid var(--primary-2)}
+.chain-item:nth-child(4){border-top-color:var(--accent);background:linear-gradient(180deg,#F2FAF7 0%,#fff 60%)}
+.chain-item .yr{font-size:12px;font-weight:700;color:var(--muted);letter-spacing:.5px}
+.chain-item h4{font-size:15.5px;font-weight:800;color:var(--primary);margin:6px 0 8px}
+.chain-item p{font-size:13px;color:var(--muted);line-height:1.65}
+.chain-item .arrow{
+  position:absolute;right:-11px;top:50%;transform:translateY(-50%);
+  color:#A9C2CF;font-size:19px;font-weight:800;z-index:3;
 }
-@keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
+.chain-item:last-child .arrow{display:none}
 
-/* ===== SECTION ===== */
-section { padding: 64px 24px; max-width: 900px; margin: 0 auto; }
-.section-header { margin-bottom: 36px; }
-.section-num { font-size:14px; font-weight:700; color:var(--primary-light); letter-spacing:2px; margin-bottom:4px; }
-.section-title { font-size:28px; font-weight:700; color:var(--primary); margin-bottom:6px; }
-.section-desc { font-size:14px; color:var(--text-light); }
-.section-divider { width:48px; height:3px; background:var(--primary); border-radius:2px; margin-top:12px; }
+/* ---------- 项目概览 ---------- */
+.proj-top{display:grid;grid-template-columns:1.6fr 1fr;gap:16px;margin-bottom:16px}
+.proj-top .main{background:linear-gradient(135deg,#0F4761,#1B6B93);color:#fff;border-radius:14px;padding:26px 28px}
+.proj-top .main h3{font-size:20px;font-weight:800;line-height:1.4}
+.proj-top .main p{font-size:13.5px;opacity:.9;margin-top:12px}
+.proj-top .side{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px}
+.proj-top .side dl{display:grid;grid-template-columns:auto 1fr;gap:9px 14px;font-size:13px}
+.proj-top .side dt{color:var(--muted);font-weight:600;white-space:nowrap}
+.proj-top .side dd{color:var(--text);font-weight:600}
 
-/* ===== CARDS ===== */
-.card {
-  background: var(--white);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 28px;
-  margin-bottom: 20px;
-  transition: box-shadow 0.3s;
+/* ---------- 用户 ---------- */
+.users{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.user-card{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--amber);border-radius:12px;padding:18px 20px}
+.user-card h5{font-size:14.5px;font-weight:800;color:var(--primary);margin-bottom:6px}
+.user-card p{font-size:13px;color:var(--muted)}
+.user-card b{color:var(--amber)}
+
+/* ---------- 流程图 ---------- */
+.flow{display:flex;align-items:stretch;flex-wrap:wrap}
+.flow-step{
+  flex:1 1 0;min-width:118px;background:var(--card);border:1px solid var(--line);
+  border-radius:11px;padding:14px 10px;text-align:center;
 }
-.card:hover { box-shadow: var(--shadow-hover); }
-.card-title { font-size:17px; font-weight:700; color:var(--primary); margin-bottom:12px; display:flex; align-items:center; gap:8px; }
-.card-title .icon { width:28px; height:28px; background:var(--accent); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:14px; }
+.flow-step .n{font-size:11px;font-weight:800;color:#fff;background:var(--primary-2);border-radius:50%;width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center;margin-bottom:7px}
+.flow-step h6{font-size:13.5px;font-weight:800;color:var(--primary);line-height:1.4}
+.flow-step p{font-size:11.5px;color:var(--muted);margin-top:5px;line-height:1.5}
+.flow-arrow{display:flex;align-items:center;padding:0 5px;color:#B9CBD6;font-weight:800;font-size:16px}
+.flow-step.decision{background:#FFF8EE;border-color:#F0D9B5}
+.flow-step.decision .n{background:var(--amber)}
+.flow-step.human{background:#F1F8F5;border-color:#BFE0D3;display:inline-block;text-align:left}
+.flow-step.human .n{background:var(--accent)}
+.branch-line{display:flex;align-items:center;gap:10px;margin-top:14px;padding-left:8px;font-size:12.5px;color:var(--muted);flex-wrap:wrap}
 
-/* ===== TABLE ===== */
-.tbl-wrap { overflow-x:auto; margin:16px 0; border-radius:8px; box-shadow:var(--shadow); }
-table { width:100%; border-collapse:collapse; font-size:13px; background:var(--white); }
-thead { background: var(--primary); }
-thead th { color:var(--white); padding:10px 14px; text-align:left; font-weight:600; white-space:nowrap; }
-tbody td { padding:10px 14px; border-bottom:1px solid var(--border); color:var(--text); }
-tbody tr:nth-child(even) { background: var(--accent2); }
-tbody tr:hover { background: var(--accent); }
+/* ---------- 模块 ---------- */
+.mods{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.mod{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:20px 20px 18px;border-top:3px solid var(--primary-2);transition:.18s}
+.mod:hover{transform:translateY(-3px);box-shadow:0 8px 22px rgba(15,71,97,.09)}
+.mod .ico{font-size:20px;margin-bottom:9px}
+.mod h5{font-size:14.5px;font-weight:800;color:var(--primary);margin-bottom:7px}
+.mod p{font-size:12.5px;color:var(--muted);line-height:1.65}
 
-/* ===== BLOCKS ===== */
-.block { margin-bottom:16px; }
-.block-label { font-weight:700; color:var(--primary); font-size:14px; margin-bottom:4px; }
-.block-text { font-size:14px; color:var(--text); line-height:1.8; }
-.block-text.indent { padding-left:16px; border-left:3px solid var(--accent); margin-left:4px; }
-
-/* ===== BULLETS ===== */
-.bullet-list { list-style:none; padding:0; }
-.bullet-list li {
-  position:relative; padding-left:22px; margin-bottom:8px; font-size:14px; line-height:1.7;
+/* ---------- 用户旅程 ---------- */
+.journey{position:relative;padding-left:34px}
+.journey::before{content:"";position:absolute;left:11px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.j-step{position:relative;margin-bottom:18px}
+.j-step::before{
+  content:"";position:absolute;left:-29px;top:6px;width:14px;height:14px;border-radius:50%;
+  background:#fff;border:3px solid var(--primary-2);z-index:1;
 }
-.bullet-list li::before {
-  content:''; position:absolute; left:4px; top:9px;
-  width:6px; height:6px; border-radius:50%; background:var(--primary-light);
+.j-step.dec::before{border-color:var(--amber);background:#FFF8EE}
+.j-step.hum::before{border-color:var(--accent)}
+.j-step h5{font-size:14.5px;font-weight:800;color:var(--primary)}
+.j-step p{font-size:13px;color:var(--muted);margin-top:3px}
+.j-branch{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px}
+.j-branch .b{border-radius:10px;padding:13px 16px;font-size:12.5px;line-height:1.6;color:var(--muted)}
+.j-branch .b.yes{background:#F1F8F5;border:1px solid #BFE0D3}
+.j-branch .b.no{background:#FDF4F1;border:1px solid #EECFC5}
+.j-branch .b b{display:block;font-size:13px;margin-bottom:3px;color:var(--primary)}
+.j-branch .b.no b{color:#A5482F}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px}
+.tag2{font-size:11.5px;font-weight:700;padding:3px 11px;border-radius:20px;background:var(--soft);color:var(--primary-2)}
+
+/* ---------- 指标 ---------- */
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:18px}
+.metric{background:linear-gradient(135deg,#0F4761,#1B6B93);color:#fff;border-radius:14px;padding:24px 22px;text-align:center}
+.metric.g2{background:linear-gradient(135deg,#1B6B93,#1F8A70)}
+.metric.g3{background:linear-gradient(135deg,#1F8A70,#2FA37F)}
+.metric .num{font-size:34px;font-weight:800;line-height:1.1;letter-spacing:-.5px}
+.metric .lbl{font-size:13px;font-weight:700;margin-top:8px;opacity:.95}
+.metric .desc{font-size:11.5px;opacity:.78;margin-top:4px}
+.caliber{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:20px 24px}
+.caliber h5{font-size:14px;font-weight:800;color:var(--primary);margin-bottom:12px}
+.caliber table{width:100%;border-collapse:collapse;font-size:12.5px}
+.caliber th,.caliber td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.caliber th{color:var(--muted);font-weight:700;background:#FAFCFD;font-size:12px}
+.caliber td{color:var(--muted)}
+.caliber td:first-child{font-weight:700;color:var(--primary);white-space:nowrap}
+.caliber tr:last-child td{border-bottom:none}
+
+/* ---------- 回流闭环 ---------- */
+.loop{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:12px}
+.loop-item{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 16px 16px;position:relative}
+.loop-item .n{position:absolute;top:-10px;left:16px;background:var(--primary);color:#fff;font-size:11px;font-weight:800;padding:2px 10px;border-radius:20px}
+.loop-item h6{font-size:13.5px;font-weight:800;color:var(--primary);margin:6px 0 6px}
+.loop-item p{font-size:12px;color:var(--muted);line-height:1.6}
+.cats{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px}
+.cat{font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:6px;background:#FDF4F1;color:#A5482F;border:1px solid #EECFC5}
+
+/* ---------- 决策 ---------- */
+.decs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.dec{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:20px}
+.dec .q{font-size:13.5px;font-weight:800;color:var(--primary);line-height:1.5;min-height:3.1em;margin-bottom:10px;padding-bottom:10px;border-bottom:1px dashed var(--line)}
+.dec .a{font-size:12.5px;color:var(--muted);line-height:1.7}
+.dec .a b{color:var(--accent);font-weight:800}
+
+/* ---------- 方法论 ---------- */
+.methods{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.mth{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:20px}
+.mth h5{font-size:14.5px;font-weight:800;color:var(--primary);margin-bottom:8px}
+.mth p{font-size:12.5px;color:var(--muted);line-height:1.7}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--primary);color:#fff;padding:44px 0 40px;margin-top:56px}
+footer h3{font-size:19px;font-weight:800;margin-bottom:12px}
+footer p{font-size:13.5px;opacity:.85;max-width:760px}
+footer .links{margin-top:18px;display:flex;flex-wrap:wrap;gap:12px 30px;font-size:13.5px}
+footer .links b{opacity:.7;font-weight:600}
+
+@media print{
+  .nav{display:none}
+  section{padding:22px 0 2px}
+  .sec-head,.sec-sub{break-after:avoid}
+  .chain{grid-template-columns:repeat(4,1fr)!important}
+  .loop{grid-template-columns:repeat(4,1fr)!important}
+  .mods,.metrics,.decs,.methods{grid-template-columns:repeat(3,1fr)!important}
+  .proj-top{grid-template-columns:1.6fr 1fr!important}
+  .users,.j-branch{grid-template-columns:1fr 1fr!important}
+  .card,.mod,.metric,.caliber,.loop-item,.dec,.mth,.user-card,.chain-item,.j-step{break-inside:avoid}
+  .hero{padding:34px 0 30px}
+  .hero h1{font-size:32px}
+  footer{margin-top:30px}
+  .flow{flex-wrap:nowrap}
+  .flow-step{min-width:0;padding:9px 4px}
+  .flow-step h6{font-size:11.5px}
+  .flow-step p{font-size:9.5px;margin-top:3px}
+  .flow-step .n{width:16px;height:16px;font-size:9px;margin-bottom:4px}
+  .flow-arrow{padding:0 2px;font-size:12px}
 }
-.bullet-list li b { color:var(--primary); }
-
-/* ===== PROMPT BOX ===== */
-.prompt-box {
-  background: #1e293b; color: #e2e8f0; border-radius:8px;
-  padding:16px 20px; margin:12px 0; font-size:13px; line-height:1.7;
-  font-family: "SF Mono","Fira Code",monospace; white-space:pre-wrap;
-  border-left:3px solid var(--primary-light);
+@media(max-width:900px){
+  .chain,.mods,.metrics,.loop,.decs,.methods{grid-template-columns:1fr 1fr}
+  .proj-top{grid-template-columns:1fr}
+  .chain-item .arrow{display:none}
 }
-.prompt-box .label { color:#94a3b8; font-size:11px; margin-bottom:6px; }
-.prompt-box .result { color:#86efac; font-size:12px; margin-top:8px; }
-
-/* ===== TIMELINE ===== */
-.timeline { position:relative; padding-left:28px; }
-.timeline::before { content:''; position:absolute; left:8px; top:0; bottom:0; width:2px; background:var(--border); }
-.timeline-item { position:relative; margin-bottom:20px; }
-.timeline-item::before { content:''; position:absolute; left:-24px; top:4px; width:12px; height:12px; border-radius:50%; background:var(--primary); border:3px solid var(--white); box-shadow:0 0 0 2px var(--primary); }
-.timeline-item .ti-title { font-weight:700; font-size:14px; color:var(--primary); }
-.timeline-item .ti-desc { font-size:13px; color:var(--text-light); margin-top:2px; }
-
-/* ===== METRICS ===== */
-.metrics { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:16px; margin:20px 0; }
-.metric { background:var(--accent); border-radius:10px; padding:20px; text-align:center; }
-.metric .value { font-size:28px; font-weight:800; color:var(--primary); }
-.metric .label { font-size:12px; color:var(--text-light); margin-top:4px; }
-
-/* ===== ARCHITECTURE ===== */
-.arch-flow { display:flex; flex-direction:column; gap:8px; margin:16px 0; }
-.arch-row { display:flex; gap:8px; align-items:stretch; }
-.arch-node {
-  flex:1; background:var(--white); border:2px solid var(--primary); border-radius:8px;
-  padding:10px 14px; text-align:center; font-size:13px; font-weight:600; color:var(--primary);
-  display:flex; align-items:center; justify-content:center;
-}
-.arch-node.accent { background:var(--primary); color:var(--white); }
-.arch-arrow { display:flex; align-items:center; color:var(--primary-light); font-size:18px; }
-
-/* ===== CHECKLIST ===== */
-.checklist { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px; margin:16px 0; }
-.checklist-card { background:var(--white); border-radius:10px; padding:20px; box-shadow:var(--shadow); }
-.checklist-card h4 { font-size:14px; color:var(--primary); margin-bottom:10px; display:flex; align-items:center; gap:6px; }
-.checklist-card ul { list-style:none; padding:0; }
-.checklist-card li { font-size:13px; padding:4px 0 4px 20px; position:relative; color:var(--text); }
-.checklist-card li::before { content:'✓'; position:absolute; left:0; color:var(--primary-light); font-weight:700; }
-
-/* ===== FOOTER ===== */
-footer {
-  background: var(--primary-dark); color: var(--white);
-  text-align: center; padding: 40px 24px; font-size:13px;
-}
-footer a { color: rgba(255,255,255,0.8); }
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-  nav .links { display:none; }
-  .hero h1 { font-size:32px; }
-  .hero h2 { font-size:16px; }
-  section { padding: 40px 16px; }
-  .section-title { font-size:22px; }
-  .card { padding:20px; }
-  .metrics { grid-template-columns:repeat(2,1fr); }
-  .arch-row { flex-direction:column; }
-  .arch-arrow { transform:rotate(90deg); justify-content:center; }
+@media(max-width:620px){
+  .chain,.mods,.metrics,.loop,.decs,.methods,.users,.j-branch{grid-template-columns:1fr}
+  .hero h1{font-size:30px}
+  .flow{flex-direction:column}
+  .flow-arrow{transform:rotate(90deg);justify-content:center;padding:4px 0}
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="logo">夏正伟 · AI产品经理</div>
-  <div class="links">
-    <a href="#case" class="nav-link">产品案例</a>
-    <a href="#analysis" class="nav-link">竞品分析</a>
-    <a href="#design" class="nav-link">方案设计</a>
-    <a href="#method" class="nav-link">方法论</a>
+<header class="hero">
+  <div class="wrap">
+    <h1>夏正伟<span>AI产品经理</span></h1>
+    <div class="tag">企业服务 · 智能客服 · 大模型应用落地</div>
+    <p class="lead">10年+ ToB产品与数据经验。复合背景形成一条完整的能力链：后端工程 → 大数据 → 算法场景 → AI产品，能把技术可行性判断、指标评估与产品迭代串成闭环。</p>
+    <div class="meta">
+      <span><b>作品集主题：</b>5G消息平台智能客服与模板智能生成（AI产品化 / 从0到1）</span>
+    </div>
+  </div>
+</header>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="#capability">能力主线</a>
+    <a href="#project">核心项目</a>
+    <a href="#path">产品服务路径</a>
+    <a href="#modules">功能模块</a>
+    <a href="#journey">用户流程</a>
+    <a href="#metrics">效果指标</a>
+    <a href="#loop">bad case闭环</a>
+    <a href="#decisions">关键决策</a>
+    <a href="#method">方法论</a>
   </div>
 </nav>
 
-<!-- HERO -->
-<div class="hero" id="top">
-  <div class="hero-content">
-    <div class="tag">AI PRODUCT MANAGER PORTFOLIO</div>
-    <h1>夏 正 伟</h1>
-    <h2>AI产品经理 · 智能客服 × AIGC × 大模型应用</h2>
-    <div class="info">
-      <span>📞 15910793346</span>
-      <span>✉️ xiazhengwei@163.com</span>
-    </div>
-    <div class="badges">
-      <div class="badge">工信部大模型应用工程师（高级）</div>
-      <div class="badge">PMP项目管理认证</div>
-      <div class="badge">5年+产品 × 5年+大数据/后端</div>
-    </div>
-    <p class="tagline">从Java后端到AI产品经理——兼具技术深度与产品落地能力，聚焦LLM产品化、智能客服、AIGC工具与大模型应用</p>
-  </div>
-  <div class="scroll-hint">↓ 向下滚动浏览</div>
-</div>
+<main class="wrap">
 
-<!-- ===== MODULE 1: AI PRODUCT CASE ===== -->
-<section id="case">
-  <div class="section-header">
-    <div class="section-num">01</div>
-    <div class="section-title">AI产品案例</div>
-    <div class="section-desc">5G消息平台模板智能生成与智能客服 — AI产品化 / 从0到1</div>
-    <div class="section-divider"></div>
-  </div>
-
-  <!-- Background -->
-  <div class="card">
-    <div class="card-title"><span class="icon">📋</span> 项目背景与问题定义</div>
-    <div class="block">
-      <div class="block-label">业务痛点</div>
-      <ul class="bullet-list">
-        <li><b>模板生产效率低：</b>5G消息模板需人工设计排版、配置交互按钮、编写卡片布局，单个模板制作周期2-4小时，严重制约发送效率。</li>
-        <li><b>智能客服能力弱：</b>传统客服依赖人工值守和关键词匹配，无法理解用户意图，人工接通率高、响应慢、成本高。</li>
-      </ul>
+<!-- ============ 01 能力主线 ============ -->
+<section id="capability">
+  <div class="sec-head"><div class="sec-no">01</div><h2>能力主线：我的经历如何服务于 AI 产品岗位</h2></div>
+  <p class="sec-sub">四段经历不是并列的"我做过什么"，而是一条层层递进、最终指向 AI 产品落地的主线。</p>
+  <div class="chain">
+    <div class="chain-item">
+      <div class="yr">2011 – 2015</div>
+      <h4>后端工程</h4>
+      <p>银行支付、售票预约系统开发。→ 能判断系统接口、数据流、模型调用与工程可行性，与研发/算法对话有共同语言。</p>
+      <div class="arrow">→</div>
     </div>
-    <div class="block">
-      <div class="block-label">产品目标</div>
-      <div class="block-text indent">通过LLM/AIGC能力实现模板自动生成与智能客服问答，将平台从"基础消息通道"升级为"智能化消息服务平台"，降低企业使用门槛，提升平台竞争力。</div>
+    <div class="chain-item">
+      <div class="yr">2015 – 2021</div>
+      <h4>大数据平台</h4>
+      <p>融合大数据平台，统一多业务线离线数据。→ 能做数据口径、指标评估、效果归因与策略迭代。</p>
+      <div class="arrow">→</div>
     </div>
-  </div>
-
-  <!-- User Persona -->
-  <div class="card">
-    <div class="card-title"><span class="icon">👥</span> 目标用户与核心场景</div>
-    <div class="tbl-wrap">
-      <table>
-        <thead><tr><th>用户角色</th><th>核心诉求</th><th>使用场景</th></tr></thead>
-        <tbody>
-          <tr><td>SaaS运营人员</td><td>快速创建5G消息模板</td><td>营销活动、节日问候、产品推广等需频繁创建不同样式模板</td></tr>
-          <tr><td>企业终端用户</td><td>快速获得准确解答</td><td>通过5G消息或SaaS入口咨询业务问题，期望即时准确回复</td></tr>
-          <tr><td>平台管理员</td><td>降低客服成本</td><td>监控智能客服运行，管理知识库，处理转人工工单</td></tr>
-        </tbody>
-      </table>
+    <div class="chain-item">
+      <div class="yr">2015 – 2021</div>
+      <h4>算法场景（DSP竞价）</h4>
+      <p>广告竞价平台从调研到上线。→ 理解算法推荐、竞价策略与数据驱动决策，知道算法类产品怎么推进。</p>
+      <div class="arrow">→</div>
     </div>
-  </div>
-
-  <!-- Architecture -->
-  <div class="card">
-    <div class="card-title"><span class="icon">🏗️</span> AI方案设计与技术架构</div>
-    <div class="block">
-      <div class="block-label">模板智能生成</div>
-      <div class="block-text indent">通过结构化Prompt引导LLM生成符合5G消息卡片规范的模板内容（标题、正文、按钮、图片占位符），支持自然语言描述→模板输出的自动转换。</div>
-    </div>
-    <div class="block">
-      <div class="block-label">智能客服问答</div>
-      <div class="block-text indent">基于企业知识库构建RAG（检索增强生成）链路：用户提问→向量检索相关知识→构造上下文Prompt→LLM生成回答，实现领域知识精准问答，减少幻觉。</div>
-    </div>
-    <div class="block">
-      <div class="block-label">关键技术决策</div>
-      <div class="tbl-wrap">
-        <table>
-          <thead><tr><th>决策点</th><th>方案选择</th><th>决策依据</th></tr></thead>
-          <tbody>
-            <tr><td>模型选择</td><td>通用大模型API调用</td><td>文本生成和问答场景，通用模型能力足够；自训练成本高周期长</td></tr>
-            <tr><td>知识增强</td><td>RAG（检索增强生成）</td><td>知识库频繁更新，RAG比微调更灵活；可控制知识来源降低幻觉</td></tr>
-            <tr><td>Prompt策略</td><td>结构化模板+Few-shot</td><td>5G模板有固定结构，结构化Prompt约束输出；Few-shot提升稳定性</td></tr>
-            <tr><td>兜底机制</td><td>低置信度转人工+规则兜底</td><td>LLM有不确定性，关键场景必须人工兜底；高风险走规则引擎</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <!-- Prompt Engineering -->
-  <div class="card">
-    <div class="card-title"><span class="icon">⚡</span> Prompt工程实践与迭代</div>
-    <div class="block-text">以"模板智能生成"为例，展示Prompt从V1到V3的完整迭代过程：</div>
-
-    <div class="prompt-box">
-      <div class="label">V1 基础版</div>
-你是一个5G消息模板生成助手。请根据用户描述生成5G消息模板，包含标题、正文、按钮。
-      <div class="result">问题：输出格式不固定，经常缺少按钮配置；内容风格不稳定，有时过于冗长。</div>
-    </div>
-
-    <div class="prompt-box">
-      <div class="label">V2 结构化约束</div>
-角色：你是5G消息模板生成专家。
-任务：根据用户输入的业务描述，生成符合5G消息卡片规范的模板。
-输出格式要求：1. 标题（≤20字） 2. 正文（≤100字，含关键信息） 3. 按钮列表（1-3个，每个≤8字） 4. 图片描述（可选）
-约束：标题需吸引点击，正文需简洁有力，按钮文案需引导行动。
-      <div class="result">改进：格式基本稳定，但内容与企业品牌调性匹配度不高，缺少行业适配。</div>
-    </div>
-
-    <div class="prompt-box">
-      <div class="label">V3 Few-shot + 行业适配（最终版）</div>
-角色：你是5G消息模板生成专家。
-任务：根据用户输入的业务描述和行业类型，生成符合5G消息卡片规范的模板。
-
-参考示例：
-[行业：电商] 输入："双十一促销"
-→ 输出：标题"双十一限时特惠" / 正文"精选好物低至5折，限时3天" / 按钮["立即抢购","查看清单"]
-
-[行业：金融] 输入："信用卡还款提醒"
-→ 输出：标题"还款提醒" / 正文"您的信用卡账单已出，请于X月X日前还款" / 按钮["立即还款","查看账单"]
-
-输出格式：标题 / 正文 / 按钮列表 / 图片描述
-约束：标题≤20字，正文≤100字，按钮1-3个每个≤8字，文案需匹配行业调性。
-      <div class="result">效果：生成质量显著提升，格式稳定性达95%+，行业适配度满足业务要求。</div>
-    </div>
-
-    <div class="tbl-wrap">
-      <table>
-        <thead><tr><th>版本</th><th>核心改进</th><th>格式稳定性</th><th>内容质量</th><th>关键发现</th></tr></thead>
-        <tbody>
-          <tr><td>V1</td><td>基础指令</td><td>~60%</td><td>不稳定</td><td>无格式约束，LLM自由发挥</td></tr>
-          <tr><td>V2</td><td>结构化约束</td><td>~85%</td><td>基本可用</td><td>格式约束有效，但缺行业适配</td></tr>
-          <tr><td>V3</td><td>Few-shot+行业</td><td><b>95%+</b></td><td><b>满足业务</b></td><td>示例引导是最有效的优化手段</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- Metrics -->
-  <div class="card">
-    <div class="card-title"><span class="icon">📊</span> 效果评估与度量</div>
-    <div class="metrics">
-      <div class="metric"><div class="value">60%</div><div class="label">模板生产效率提升</div></div>
-      <div class="metric"><div class="value">80%+</div><div class="label">智能客服覆盖率</div></div>
-      <div class="metric"><div class="value">30%</div><div class="label">人工接通率下降</div></div>
-      <div class="metric"><div class="value">95%+</div><div class="label">模板格式稳定性</div></div>
-    </div>
-    <div class="tbl-wrap">
-      <table>
-        <thead><tr><th>评估维度</th><th>指标</th><th>评估方法</th><th>结果</th></tr></thead>
-        <tbody>
-          <tr><td>模板-格式合规率</td><td>输出符合5G卡片规范的比率</td><td>自动校验+人工抽检100条/周</td><td>95%+</td></tr>
-          <tr><td>模板-采纳率</td><td>用户直接使用或微调后使用的比率</td><td>后台埋点统计</td><td>效率提升约60%</td></tr>
-          <tr><td>客服-回答准确率</td><td>回答与标准答案的语义匹配度</td><td>标注测试集200条+人工评分</td><td>80%+覆盖率</td></tr>
-          <tr><td>客服-幻觉率</td><td>生成无依据内容的比率</td><td>Bad case标注+知识来源溯源</td><td>&lt;5%（兜底拦截）</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- Reflection -->
-  <div class="card">
-    <div class="card-title"><span class="icon">💡</span> 复盘与反思</div>
-    <div class="block">
-      <div class="block-label">✅ 做对了什么</div>
-      <ul class="bullet-list">
-        <li><b>结构化Prompt+Few-shot</b>是最有效的Prompt优化手段，比单纯加长指令效果好得多。</li>
-        <li><b>RAG路线选择正确</b>——企业知识库更新频繁，RAG比微调更灵活，且能控制知识来源降低幻觉。</li>
-        <li><b>兜底机制</b>（低置信度转人工+规则引擎）避免了LLM不确定性带来的业务风险。</li>
-      </ul>
-    </div>
-    <div class="block">
-      <div class="block-label">⚠️ 踩的坑</div>
-      <ul class="bullet-list">
-        <li><b>评估体系不够自动化</b>——前期依赖人工抽检，效率低且覆盖面有限。</li>
-        <li><b>Prompt版本管理不规范</b>——迭代中没有做好版本对比和回滚机制。</li>
-        <li><b>知识库质量是RAG天花板</b>——前期对知识库清洗、分块、更新投入不足。</li>
-      </ul>
-    </div>
-    <div class="block">
-      <div class="block-label">🔄 如果重来</div>
-      <ul class="bullet-list">
-        <li>引入<b>自动化评测pipeline</b>，用LLM-as-Judge做批量评估。</li>
-        <li>建立<b>Prompt版本管理规范</b>，每次迭代做A/B测试，保留可回滚快照。</li>
-        <li><b>知识库治理前置</b>——先投入精力做分块策略、去重、质量评分。</li>
-      </ul>
+    <div class="chain-item">
+      <div class="yr">2021 – 至今</div>
+      <h4>AI产品落地（主线）</h4>
+      <p>5G消息平台智能客服与模板智能生成。→ 把前三段能力汇成一次完整的 AI 产品从0到1。</p>
     </div>
   </div>
 </section>
 
-<!-- ===== MODULE 2: COMPETITIVE ANALYSIS ===== -->
-<section id="analysis">
-  <div class="section-header">
-    <div class="section-num">02</div>
-    <div class="section-title">AI竞品分析</div>
-    <div class="section-desc">智能客服赛道产品对比 — 智齿客服 / 网易七鱼 / Coze</div>
-    <div class="section-divider"></div>
-  </div>
+<!-- ============ 02 核心项目 ============ -->
+<section id="project">
+  <div class="sec-head"><div class="sec-no">02</div><h2>核心项目：5G消息平台智能客服与模板智能生成</h2></div>
+  <p class="sec-sub">AI产品化 / 从0到1 · 本次转型的核心主线项目</p>
 
-  <div class="card">
-    <div class="card-title"><span class="icon">🔍</span> 产品概览</div>
-    <div class="tbl-wrap">
-      <table>
-        <thead><tr><th>产品</th><th>公司</th><th>定位</th><th>目标客户</th><th>核心能力</th></tr></thead>
-        <tbody>
-          <tr><td>智齿客服</td><td>智齿科技</td><td>全场景智能客服平台</td><td>中大型企业</td><td>AI客服+工单+呼叫中心+CRM</td></tr>
-          <tr><td>网易七鱼</td><td>网易集团</td><td>云客服与智能外呼</td><td>中小型企业</td><td>在线客服+智能问答+外呼</td></tr>
-          <tr><td>Coze（扣子）</td><td>字节跳动</td><td>AI Bot构建平台</td><td>开发者/企业</td><td>Agent编排+知识库+插件+工作流</td></tr>
-        </tbody>
-      </table>
+  <div class="proj-top">
+    <div class="main">
+      <h3>把"人工做模板 + 关键词客服"升级为"大模型生成 + RAG智能问答 + 人工兜底"</h3>
+      <p>平台原有能力停留在基础消息与关键词匹配阶段。我负责从业务痛点出发，判断哪些环节适合大模型、哪些必须走规则，并把它设计成一条可评估、可迭代的产品链路。</p>
+    </div>
+    <div class="side">
+      <dl>
+        <dt>我的角色</dt><dd>AI产品负责人</dd>
+        <dt>负责范围</dt><dd>需求定义 / 方案设计 / Prompt设计 / 效果评估与迭代</dd>
+        <dt>协同对象</dt><dd>算法·研发 / UI / 运营 / 销售</dd>
+        <dt>时间</dt><dd>2021.08 – 至今</dd>
+      </dl>
     </div>
   </div>
 
-  <div class="card">
-    <div class="card-title"><span class="icon">⚖️</span> 核心功能对比</div>
-    <div class="tbl-wrap">
-      <table>
-        <thead><tr><th>功能维度</th><th>智齿客服</th><th>网易七鱼</th><th>Coze</th></tr></thead>
-        <tbody>
-          <tr><td>知识库管理</td><td>文档/FAQ导入，自动分块索引</td><td>FAQ+知识库，可视化编辑</td><td>文档/网页/API，灵活分块策略</td></tr>
-          <tr><td>LLM接入</td><td>自研+通用模型混合</td><td>网易自研模型为主</td><td>多模型切换（豆包/GPT等）</td></tr>
-          <tr><td>RAG能力</td><td>内置RAG，多轮检索</td><td>内置RAG，意图识别</td><td>混合检索+重排序</td></tr>
-          <tr><td>Agent/工作流</td><td>有限工作流编排</td><td>基础话术流程配置</td><td>强大Agent编排+插件生态</td></tr>
-          <tr><td>多渠道接入</td><td>网页/微信/APP/5G/电话</td><td>网页/微信/APP/电话</td><td>API/微信/飞书/网页</td></tr>
-          <tr><td>人工协同</td><td>智能转人工+工单流转</td><td>智能转人工+会话分配</td><td>人机协同（Bot+人工审核）</td></tr>
-        </tbody>
-      </table>
+  <div class="users">
+    <div class="user-card">
+      <h5>用户 A · 企业SaaS客户运营人员</h5>
+      <p>需要反复制作 5G 消息模板，人工制作一个模板需 <b>2–4 小时</b>，产出慢、样式不规范、复用性差。</p>
     </div>
-  </div>
-
-  <div class="card">
-    <div class="card-title"><span class="icon">🧠</span> 技术方案分析</div>
-    <div class="block">
-      <div class="block-label">智齿客服</div>
-      <div class="block-text indent">采用"自研模型+通用模型"混合策略：高频简单问题走规则引擎和自研小模型（低延迟、低成本），复杂问题走通用大模型（高质量）。优势是成本可控，劣势是自研模型迭代慢、泛化能力有限。</div>
+    <div class="user-card">
+      <h5>用户 B · 终端用户（咨询者）</h5>
+      <p>客服依赖关键词匹配，问题稍复杂就答不上来，<b>转人工率高、响应慢</b>，体验断点多。</p>
     </div>
-    <div class="block">
-      <div class="block-label">网易七鱼</div>
-      <div class="block-text indent">以网易自研大模型为核心，深度整合网易生态。优势是模型可控、数据安全，劣势是模型能力受限于自研水平，开放性不足。</div>
-    </div>
-    <div class="block">
-      <div class="block-label">Coze</div>
-      <div class="block-text indent">定位为AI Bot构建平台而非传统客服，核心优势在Agent编排能力：支持多模型切换、插件生态、工作流可视化编排。RAG能力强大（混合检索+重排序），但客服场景深度（工单、呼叫中心、CRM）不如专业客服产品。</div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-title"><span class="icon">📌</span> 产品洞察与启示</div>
-    <ul class="bullet-list">
-      <li><b>趋势：</b>智能客服正从"问答机器人"向"AI Agent"演进——未来客服不只是回答问题，还要能执行操作（查订单、改地址、退款等）。</li>
-      <li><b>趋势：</b>RAG成为标配，但知识库治理是真正的差异化——谁的分块策略更好、谁的知识更新更快、谁的检索更准，谁就赢。</li>
-      <li><b>趋势：</b>多模型策略是成本控制的关键——简单问题用小模型/规则，复杂问题用大模型，动态路由是趋势。</li>
-      <li><b>对本项目的启示：</b>5G消息平台的智能客服应聚焦"消息场景"差异化——结合5G富媒体消息能力（卡片、按钮、交互），做"可交互的智能客服"。</li>
-      <li><b>对本项目的启示：</b>知识库治理应作为产品功能而非后台工具——让运营人员可视化管理知识库、查看命中率、发现知识缺口。</li>
-    </ul>
   </div>
 </section>
 
-<!-- ===== MODULE 3: AI APPLICATION DESIGN ===== -->
-<section id="design">
-  <div class="section-header">
-    <div class="section-num">03</div>
-    <div class="section-title">AI应用设计方案</div>
-    <div class="section-desc">RAG智能客服知识库Demo — 产品方案与技术架构设计</div>
-    <div class="section-divider"></div>
-  </div>
-
+<!-- ============ 03 产品服务路径 ============ -->
+<section id="path">
+  <div class="sec-head"><div class="sec-no">03</div><h2>产品服务路径图</h2></div>
+  <p class="sec-sub">从用户提问到会话归档的完整服务链路，橙框为判断节点，绿框为人工兜底。</p>
   <div class="card">
-    <div class="card-title"><span class="icon">🎯</span> 场景定义与用户需求</div>
-    <div class="block-text">目标场景：为某电商SaaS平台构建智能客服，覆盖订单查询、退换货政策、物流追踪、支付问题等高频咨询场景。</div>
-    <div class="tbl-wrap">
-      <table>
-        <thead><tr><th>场景类型</th><th>用户问题示例</th><th>当前痛点</th><th>AI方案价值</th></tr></thead>
-        <tbody>
-          <tr><td>订单查询</td><td>"我的订单到哪了？"</td><td>需人工查系统后回复，响应慢</td><td>Agent调用物流API，自动查询回复</td></tr>
-          <tr><td>退换货政策</td><td>"7天无理由退货怎么操作？"</td><td>客服需记忆政策，新人易答错</td><td>RAG检索退换货文档，精准回答</td></tr>
-          <tr><td>支付问题</td><td>"支付失败怎么办？"</td><td>需转接支付团队，链路长</td><td>知识库匹配常见原因+解决方案</td></tr>
-          <tr><td>商品咨询</td><td>"这个产品有现货吗？"</td><td>需切换系统查看库存</td><td>Agent调用库存API，实时回复</td></tr>
-        </tbody>
-      </table>
+    <div class="flow">
+      <div class="flow-step"><div class="n">1</div><h6>用户提问</h6><p>多渠道接入</p></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="n">2</div><h6>意图识别</h6><p>分类与分流</p></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="n">3</div><h6>知识库检索</h6><p>RAG 语义召回</p></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="n">4</div><h6>生成回答</h6><p>Prompt 约束输出</p></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step decision"><div class="n">5</div><h6>置信度判断</h6><p>阈值 + 风险规则</p></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="n">6</div><h6>直接回复</h6><p>高置信自动应答</p></div>
     </div>
-  </div>
-
-  <div class="card">
-    <div class="card-title"><span class="icon">🏗️</span> 技术架构设计</div>
-    <div class="block-text">采用 RAG + Agent 混合架构，按问题类型动态路由：</div>
-
-    <div class="arch-flow">
-      <div class="arch-row">
-        <div class="arch-node">用户输入</div>
-        <div class="arch-arrow">→</div>
-        <div class="arch-node accent">意图识别（LLM分类）</div>
-        <div class="arch-arrow">→</div>
-        <div class="arch-node">路由分发</div>
-      </div>
-      <div class="arch-row">
-        <div class="arch-node">RAG链路：向量检索 → Top-K召回 → 重排序 → 构造Prompt → LLM生成回答</div>
-      </div>
-      <div class="arch-row">
-        <div class="arch-node">Agent链路：Function Calling → 调用外部API → 整合结果 → LLM生成回复</div>
-      </div>
-      <div class="arch-row">
-        <div class="arch-node">兜底链路：低置信度/高风险 → 转人工客服</div>
-      </div>
+    <div class="branch-line">
+      <span style="color:#B9CBD6;font-weight:800;font-size:16px">↳</span>
+      <span>低置信 / 高风险 / 投诉 →</span>
+      <span class="flow-step human" style="padding:11px 16px;flex:0 0 auto"><b style="color:var(--primary);font-size:13px">转人工接管</b> · 坐席接管后统一归档</span>
     </div>
-
-    <div class="tbl-wrap">
-      <table>
-        <thead><tr><th>组件</th><th>选型</th><th>理由</th></tr></thead>
-        <tbody>
-          <tr><td>Embedding模型</td><td>通用文本向量模型</td><td>中文语义理解能力足够，API调用成本低</td></tr>
-          <tr><td>向量数据库</td><td>Chroma/FAISS</td><td>Demo阶段数据量小，无需重型数据库</td></tr>
-          <tr><td>LLM</td><td>通用大模型API</td><td>支持Function Calling，可做Agent编排</td></tr>
-          <tr><td>分块策略</td><td>语义段落分块（200-500字）+重叠窗口</td><td>保持语义完整性，提升检索精度</td></tr>
-          <tr><td>重排序</td><td>Cross-encoder重排序模型</td><td>二次精排，提升Top-K相关性</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-title"><span class="icon">🔄</span> 产品流程设计</div>
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="ti-title">Step 1: 用户发起咨询</div>
-        <div class="ti-desc">用户在5G消息或SaaS入口发起咨询</div>
-      </div>
-      <div class="timeline-item">
-        <div class="ti-title">Step 2: 意图识别</div>
-        <div class="ti-desc">系统判断属于"知识问答"还是"操作请求"</div>
-      </div>
-      <div class="timeline-item">
-        <div class="ti-title">Step 3a: 知识问答 → RAG链路</div>
-        <div class="ti-desc">RAG检索 → LLM生成回答 → 置信度判断 → 输出/转人工</div>
-      </div>
-      <div class="timeline-item">
-        <div class="ti-title">Step 3b: 操作请求 → Agent链路</div>
-        <div class="ti-desc">Agent调用API → 整合数据 → LLM生成自然语言回复</div>
-      </div>
-      <div class="timeline-item">
-        <div class="ti-title">Step 4: 日志沉淀</div>
-        <div class="ti-desc">记录会话日志 → 更新知识库命中率统计 → 沉淀未覆盖问题</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-title"><span class="icon">📐</span> 评估方案设计</div>
-    <div class="tbl-wrap">
-      <table>
-        <thead><tr><th>评估阶段</th><th>评估指标</th><th>评估方法</th><th>目标值</th></tr></thead>
-        <tbody>
-          <tr><td>检索质量</td><td>Recall@5 / MRR</td><td>标注测试集200条</td><td>Recall@5 ≥ 85%</td></tr>
-          <tr><td>生成质量</td><td>回答准确率 / 幻觉率</td><td>LLM-as-Judge + 人工抽检</td><td>准确率≥85%，幻觉率&lt;5%</td></tr>
-          <tr><td>端到端体验</td><td>首次解决率 / 转人工率</td><td>模拟会话测试100轮</td><td>首次解决率≥70%</td></tr>
-          <tr><td>性能</td><td>平均响应时延</td><td>压力测试</td><td>P95 &lt; 3秒</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-title"><span class="icon">💰</span> 商业化思考</div>
-    <ul class="bullet-list">
-      <li><b>定价模式：</b>按会话量阶梯定价——基础包含X轮/月，超出按量计费，降低中小企业使用门槛。</li>
-      <li><b>增值服务：</b>知识库治理作为增值服务——提供知识库体检、自动分块优化、知识缺口分析等付费功能。</li>
-      <li><b>生态策略：</b>沉淀行业知识包——电商/金融/教育等行业的通用知识库模板，客户开箱即用，降低冷启动成本。</li>
-    </ul>
   </div>
 </section>
 
-<!-- ===== MODULE 4: METHODOLOGY ===== -->
+<!-- ============ 04 功能模块 ============ -->
+<section id="modules">
+  <div class="sec-head"><div class="sec-no">04</div><h2>核心功能模块</h2></div>
+  <p class="sec-sub">六个模块共同支撑"能答、答得准、答不了能兜住、错了能改"。</p>
+  <div class="mods">
+    <div class="mod"><div class="ico">✍️</div><h5>模板智能生成</h5><p>用大模型把自然语言需求转成规范模板，支持样式与行业适配，把小时级制作压到分钟级。</p></div>
+    <div class="mod"><div class="ico">📚</div><h5>智能问答（RAG）</h5><p>文档清洗 → 语义分块 → 向量化入库 → 语义召回，让答案来自知识库而不是模型"编"。</p></div>
+    <div class="mod"><div class="ico">🧭</div><h5>意图识别与分流</h5><p>将问题分为知识问答 / 操作请求 / 闲聊 / 投诉四类，不同意图走不同处理链路。</p></div>
+    <div class="mod"><div class="ico">🙋</div><h5>人工接管</h5><p>置信度低于阈值或命中高风险场景时强制转人工，附上下文摘要，坐席无需重复问一遍。</p></div>
+    <div class="mod"><div class="ico">📊</div><h5>效果评估</h5><p>标注测试集做样本评估，覆盖率、接通率、幻觉率按统一口径统计，避免"数字好看说不清"。</p></div>
+    <div class="mod"><div class="ico">♻️</div><h5>bad case 回流</h5><p>把线上错答结构化分类，分别回流到知识库、检索策略与 Prompt，形成迭代闭环。</p></div>
+  </div>
+</section>
+
+<!-- ============ 05 用户流程 ============ -->
+<section id="journey">
+  <div class="sec-head"><div class="sec-no">05</div><h2>用户流程图（含人工接管机制）</h2></div>
+  <p class="sec-sub">大模型不是"全权接管"，而是在明确边界内工作——这是本项目的核心设计原则。</p>
+  <div class="card">
+    <div class="journey">
+      <div class="j-step">
+        <h5>① 用户发起提问</h5>
+        <p>进入智能客服会话，输入自然语言问题。</p>
+      </div>
+      <div class="j-step">
+        <h5>② 意图识别与分流</h5>
+        <p>模型判断问题类型，分四条链路处理。</p>
+        <div class="tags">
+          <span class="tag2">知识问答</span><span class="tag2">操作请求</span><span class="tag2">闲聊</span><span class="tag2">投诉</span>
+        </div>
+      </div>
+      <div class="j-step">
+        <h5>③ 知识问答链路：检索 + 生成</h5>
+        <p>从知识库语义召回相关片段，按 Prompt 约束生成回答，要求"有依据才答"。</p>
+      </div>
+      <div class="j-step dec">
+        <h5>④ 置信度判断（关键分叉）</h5>
+        <p>结合检索相似度与生成置信度，叠加高风险场景规则。</p>
+        <div class="j-branch">
+          <div class="b yes"><b>✓ 高置信 · 自动回复</b>直接返回答案，全程无需人工介入，并记录会话用于评估。</div>
+          <div class="b no"><b>✕ 低置信 / 高风险 · 转人工</b>强制转人工，附带意图、检索片段与已生成草稿，坐席一键接管。</div>
+        </div>
+      </div>
+      <div class="j-step hum">
+        <h5>⑤ 人工接管与归档</h5>
+        <p>坐席处理完成后，会话统一归档；被人工修正的问答进入 bad case 池，反哺知识库与 Prompt。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 06 效果指标 ============ -->
+<section id="metrics">
+  <div class="sec-head"><div class="sec-no">06</div><h2>效果指标与口径卡</h2></div>
+  <p class="sec-sub">上线前先定口径——每个数字都能说清"怎么算出来的"。</p>
+  <div class="metrics">
+    <div class="metric">
+      <div class="num">+60%</div>
+      <div class="lbl">模板生产效率提升</div>
+      <div class="desc">小时级 → 分钟级</div>
+    </div>
+    <div class="metric g2">
+      <div class="num">80%+</div>
+      <div class="lbl">智能客服覆盖率</div>
+      <div class="desc">命中知识库并正确回答</div>
+    </div>
+    <div class="metric g3">
+      <div class="num">-30%</div>
+      <div class="lbl">人工接通率下降</div>
+      <div class="desc">转人工会话占比下降</div>
+    </div>
+  </div>
+  <div class="caliber">
+    <h5>指标口径说明</h5>
+    <table>
+      <thead><tr><th>指标</th><th>口径定义</th><th>数据来源</th></tr></thead>
+      <tbody>
+        <tr><td>模板生产效率</td><td>单个模板从需求到可用的耗时对比（改造前人工制作 vs 改造后生成+微调）</td><td>运营侧制作日志</td></tr>
+        <tr><td>智能客服覆盖率</td><td>命中知识库且被判定为正确回答的会话数 ÷ 总会话数</td><td>会话日志 + 人工抽检</td></tr>
+        <tr><td>人工接通率</td><td>转人工会话数 ÷ 总会话数（下降 = 更多问题被自动解决）</td><td>客服系统工单</td></tr>
+        <tr><td>幻觉率（监控项）</td><td>回答中无知识库依据的会话数 ÷ 回答总数</td><td>样本评估 + 抽检</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 07 bad case 闭环 ============ -->
+<section id="loop">
+  <div class="sec-head"><div class="sec-no">07</div><h2>bad case 回流闭环</h2></div>
+  <p class="sec-sub">不靠感觉调 Prompt，而是把线上问题结构化回收、定向修复、回归验证。</p>
+  <div class="loop">
+    <div class="loop-item"><span class="n">STEP 1</span><h6>会话归档</h6><p>全部会话（含转人工）落库，标注是否被人工修正。</p></div>
+    <div class="loop-item"><span class="n">STEP 2</span><h6>四类归因</h6><p>把错答拆成可定位的原因，而不是笼统的"答得不好"。</p>
+      <div class="cats"><span class="cat">知识缺失</span><span class="cat">检索失败</span><span class="cat">生成错误</span><span class="cat">意图误判</span></div>
+    </div>
+    <div class="loop-item"><span class="n">STEP 3</span><h6>定向回流</h6><p>知识缺失→补知识库；检索失败→调分块与召回策略；生成错误→改 Prompt；意图误判→优化分类样本。</p></div>
+    <div class="loop-item"><span class="n">STEP 4</span><h6>回归验证</h6><p>修复后在标注测试集上回归，确认不引入新问题再上线。</p></div>
+  </div>
+</section>
+
+<!-- ============ 08 关键决策 ============ -->
+<section id="decisions">
+  <div class="sec-head"><div class="sec-no">08</div><h2>关键设计决策</h2></div>
+  <p class="sec-sub">产品经理的价值不在"用了大模型"，而在这些判断上。</p>
+  <div class="decs">
+    <div class="dec">
+      <div class="q">Q1 · 智能客服为什么用 RAG，而不是微调模型？</div>
+      <div class="a">业务知识频繁更新、且需要答案可追溯。<b>RAG 让知识更新只需改知识库</b>，不必重新训练；同时能给出依据来源，降低幻觉风险。</div>
+    </div>
+    <div class="dec">
+      <div class="q">Q2 · 什么交给大模型，什么必须走规则？</div>
+      <div class="a">模板生成输入非结构化、输出允许灵活 → 适合大模型；涉及<b>交易、金额、精确计算</b>的环节一律走规则兜底，不交给模型自由发挥。</div>
+    </div>
+    <div class="dec">
+      <div class="q">Q3 · 转人工阈值怎么定？</div>
+      <div class="a">不是越低越好。阈值过低会导致大量误转人工、抵消提效；过高则幻觉风险上升。<b>按场景分层设定</b>，高风险场景（投诉、资金）强制转人工。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 09 方法论 ============ -->
 <section id="method">
-  <div class="section-header">
-    <div class="section-num">04</div>
-    <div class="section-title">方法论沉淀</div>
-    <div class="section-desc">AI产品化评估框架与工具 — 从实践中总结的体系化方法论</div>
-    <div class="section-divider"></div>
-  </div>
-
-  <div class="card">
-    <div class="card-title"><span class="icon">🧭</span> LLM应用边界评估框架</div>
-    <div class="block-text">在接到AI需求时，首先评估"这个问题适不适合用LLM解决"，避免技术滥用：</div>
-    <div class="tbl-wrap">
-      <table>
-        <thead><tr><th>评估维度</th><th>适合LLM</th><th>不适合LLM</th></tr></thead>
-        <tbody>
-          <tr><td>输出确定性</td><td>允许一定灵活性（文案、摘要、问答）</td><td>要求100%精确（计算、交易、规则判定）</td></tr>
-          <tr><td>输入类型</td><td>自然语言、非结构化文本</td><td>结构化数据查询、精确匹配</td></tr>
-          <tr><td>错误容忍度</td><td>错误可接受或有兜底机制</td><td>错误代价高昂（医疗、法律、金融交易）</td></tr>
-          <tr><td>知识更新频率</td><td>频繁更新、难以穷举</td><td>稳定不变、可枚举为规则</td></tr>
-          <tr><td>成本敏感度</td><td>高价值场景可接受API成本</td><td>高频低价值场景成本不划算</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="block-text indent"><b>评估流程：</b>需求分析 → 上述5维度打分（1-5分）→ 总分≥15分建议用LLM → &lt;15分建议用规则/传统方案 → 混合场景采用"LLM+规则"双轨制。</div>
-  </div>
-
-  <div class="card">
-    <div class="card-title"><span class="icon">✏️</span> Prompt工程设计Checklist</div>
-    <div class="checklist">
-      <div class="checklist-card">
-        <h4>📐 结构设计</h4>
-        <ul>
-          <li>明确角色定义（你是谁）</li>
-          <li>明确任务描述（做什么）</li>
-          <li>明确输出格式约束</li>
-          <li>明确约束条件（不能做什么）</li>
-        </ul>
-      </div>
-      <div class="checklist-card">
-        <h4>🎯 质量优化</h4>
-        <ul>
-          <li>加入Few-shot示例（2-3个不同场景）</li>
-          <li>示例覆盖典型场景和边界case</li>
-          <li>使用分隔符区分指令和示例</li>
-          <li>对关键约束进行强调</li>
-        </ul>
-      </div>
-      <div class="checklist-card">
-        <h4>📊 评估与迭代</h4>
-        <ul>
-          <li>准备测试集（≥50条）</li>
-          <li>每次迭代做A/B对比</li>
-          <li>记录Bad case并分析根因</li>
-          <li>版本管理：保留快照可回滚</li>
-        </ul>
-      </div>
-      <div class="checklist-card">
-        <h4>🛡️ 兜底机制</h4>
-        <ul>
-          <li>设置置信度阈值，低于转人工</li>
-          <li>关键操作必须二次确认</li>
-          <li>输出格式校验，异常走兜底</li>
-          <li>高风险操作走规则引擎</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-title"><span class="icon">🚀</span> AI功能上线评估流程</div>
-    <div class="tbl-wrap">
-      <table>
-        <thead><tr><th>阶段</th><th>关键动作</th><th>产出物</th><th>Gate标准</th></tr></thead>
-        <tbody>
-          <tr><td>1.需求评估</td><td>LLM边界评估、ROI分析</td><td>需求评估表</td><td>边界评分≥15分，ROI为正</td></tr>
-          <tr><td>2.方案设计</td><td>技术选型、架构设计、Prompt初版</td><td>技术方案文档+Prompt v1</td><td>方案评审通过</td></tr>
-          <tr><td>3.原型验证</td><td>Prompt迭代、测试集评估、Bad case分析</td><td>Prompt v2+评估报告</td><td>格式稳定性≥90%，准确率≥80%</td></tr>
-          <tr><td>4.灰度上线</td><td>小流量灰度、监控埋点、人工兜底</td><td>灰度报告+监控看板</td><td>转人工率&lt;30%，无严重Bad case</td></tr>
-          <tr><td>5.全量上线</td><td>全量发布、知识库运维流程建立</td><td>上线文档+运维手册</td><td>灰度指标达标，运维流程就绪</td></tr>
-          <tr><td>6.持续优化</td><td>Bad case收集、知识库更新、Prompt迭代</td><td>月度优化报告</td><td>指标持续提升或稳定</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="block-text indent" style="margin-top:12px;">以上方法论已在5G消息平台智能客服项目中实践验证，并在后续AI功能需求评估中持续迭代完善。</div>
+  <div class="sec-head"><div class="sec-no">09</div><h2>方法论沉淀</h2></div>
+  <p class="sec-sub">可迁移到其他大模型应用场景的三条原则。</p>
+  <div class="methods">
+    <div class="mth"><h5>先判断技术边界，再谈产品方案</h5><p>不是所有场景都适合大模型。先分清哪些环节适合 LLM、哪些适合 RAG、哪些必须走规则，方案才站得住。</p></div>
+    <div class="mth"><h5>指标口径先于效果宣传</h5><p>上线前先定义每个指标怎么算、数据从哪来，避免出现"数字好看但被追问就说不清"的尴尬。</p></div>
+    <div class="mth"><h5>用 bad case 驱动迭代</h5><p>把线上问题结构化归因、定向修复、回归验证，比凭感觉反复调 Prompt 更可控、可复用。</p></div>
   </div>
 </section>
 
-<!-- FOOTER -->
+</main>
+
 <footer>
-  <p>夏正伟 · AI产品经理作品集 · 2026</p>
-  <p style="margin-top:8px; opacity:0.6;">📞 15910793346 · ✉️ xiazhengwei@163.com</p>
-  <p style="margin-top:8px; opacity:0.4; font-size:12px;">工信部大模型应用工程师（高级） · PMP项目管理认证 · 5年+产品 × 5年+大数据/后端</p>
+  <div class="wrap">
+    <h3>夏正伟 · AI产品经理</h3>
+    <p>求职方向：企业服务 / 智能客服 / 大模型应用落地。以上为项目全链路展示，更详细的产品文档与评估材料可在面试中展开。</p>
+    <div class="links">
+      <span><b>电话</b> 15910793346</span>
+      <span><b>邮箱</b> xiazhengwei@163.com</span>
+      <span><b>作品集</b> https://xiazhengwei.top</span>
+    </div>
+  </div>
 </footer>
 
-<script>
-// Nav active highlight
-const sections = document.querySelectorAll('section');
-const navLinks = document.querySelectorAll('.nav-link');
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(sec => {
-    const top = sec.offsetTop - 80;
-    if (window.scrollY >= top) current = sec.id;
-  });
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === '#' + current) link.classList.add('active');
-  });
-});
-</script>
 </body>
 </html>
